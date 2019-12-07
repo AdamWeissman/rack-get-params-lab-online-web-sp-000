@@ -11,7 +11,10 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
     
-    pm = -> {req.path.match}
+    pm = -> (something) {req.path.match(something)}
+    
+    times_two = ->(x) { x * 2 }
+
     
     if pm.send(/items/)
       @@items.each do |item|

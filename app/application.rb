@@ -8,10 +8,11 @@ class Application
     req = Rack::Request.new(env)
     
     pm = -> (something) {req.path.match(something)}
+    rw = -> (this) {resp.write"#{this}""}
     
     if pm.call(/items/)
       @@items.each do |item|
-        resp.write "#{item}\n"
+        rw "#{item}\n"
       end
     elsif pm.call(/search/)
       search_term = req.params["q"]

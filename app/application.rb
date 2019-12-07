@@ -12,7 +12,7 @@ class Application
     
     if pm.call(/items/)
       @@items.each do |item|
-        rw "#{item}\n"
+        rw.call "#{item}\n"
       end
     elsif pm.call(/search/)
       search_term = req.params["q"]
@@ -22,7 +22,7 @@ class Application
         rw.call("Your cart is empty")
       else
         @@cart.each do |item|
-          rw "#{item}\n"
+          rw.call "#{item}\n"
         end
       end
     elsif pm.call(/add/)
@@ -34,7 +34,7 @@ class Application
         rw.call("We don't have that item")
       end
     else
-      rw "Path Not Found"
+      rw.call "Path Not Found"
     end
 
     resp.finish

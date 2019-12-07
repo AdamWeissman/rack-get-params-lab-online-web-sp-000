@@ -8,7 +8,7 @@ class Application
     req = Rack::Request.new(env)
     
     pm = -> (something) {req.path.match(something)}
-    rw = -> (this) {resp.write"#{this}""}
+    rw = -> (this) {resp.write"#{this}"}
     
     if pm.call(/items/)
       @@items.each do |item|

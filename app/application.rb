@@ -12,7 +12,7 @@ class Application
     
     if pm.call(/items/)
       @@items.each do |item|
-        rw "#{item}\n"
+        rw.call "#{item}\n"
       end
     elsif pm.call(/search/)
       search_term = req.params["q"]

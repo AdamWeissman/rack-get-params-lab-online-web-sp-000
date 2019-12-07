@@ -13,10 +13,7 @@ class Application
     
     pm = -> (something) {req.path.match(something)}
     
-    times_two = ->(x) { x * 2 }
-
-    
-    if pm.send(/items/)
+    if pm.call(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end

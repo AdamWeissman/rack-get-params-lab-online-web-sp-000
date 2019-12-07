@@ -13,7 +13,7 @@ class Application
     
     pm = -> {req.path.match}
     
-    if pm(/items/)
+    if pm.call(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end

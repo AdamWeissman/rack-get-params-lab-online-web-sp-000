@@ -6,12 +6,10 @@ class Application
   def path_match(something)
     req.path.match(something)
   end
-  
-  req = @@req
 
   def call(env)
     resp = Rack::Response.new
-    @@req = Rack::Request.new(env)
+    req = Rack::Request.new(env)
     
     if req.path.match(/items/)
       @@items.each do |item|

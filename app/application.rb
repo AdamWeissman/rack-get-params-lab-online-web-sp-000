@@ -15,8 +15,8 @@ class Application
         rw.call "#{item}\n"
       end
     elsif pm.call(/search/)
-      search_term = req.params["q"]
-      rw handle_search(search_term)
+      #search_term = req.params["q"]
+      rw handle_search(req.params["q"])
     elsif pm.call(/cart/)
       if @@cart.empty?
         rw.call("Your cart is empty")

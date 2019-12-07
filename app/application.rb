@@ -3,7 +3,7 @@ class Application
   @@items = ["Apples","Carrots","Pears"]
   @@cart = []
 
-  def self.path_match(something)
+  def path_match(something)
     req.path.match(something)
   end
 
@@ -11,7 +11,7 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
 
-    if Application::path_match(/items/)
+    if path_match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end

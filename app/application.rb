@@ -3,10 +3,6 @@ class Application
   @@items = ["Apples","Carrots","Pears"]
   @@cart = []
 
-  def path_match(something)
-    req.path.match(something)
-  end
-
   def call(env)
     resp = Rack::Response.new
     req = Rack::Request.new(env)

@@ -11,6 +11,8 @@ class Application
     resp = Rack::Response.new
     req = Rack::Request.new(env)
     
+    pm = -> {req.path.match}
+    
     if req.path.match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"

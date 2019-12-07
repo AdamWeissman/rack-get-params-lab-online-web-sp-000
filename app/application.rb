@@ -3,14 +3,17 @@ class Application
   @@items = ["Apples","Carrots","Pears"]
   @@cart = []
 
+  def path_match(something)
+    req.path.match(something)
+  end
+  
+  req = @@req
 
   def call(env)
     resp = Rack::Response.new
-    req = Rack::Request.new(env)
+    @@req = Rack::Request.new(env)
     
-    def path_match(something)
-      req.path.match(something)
-    end
+
 
     if self.path_match(/items/)
       @@items.each do |item|

@@ -12,7 +12,7 @@ class Application
       req.path.match(something)
     end
 
-    if path_match(/items/)
+    if self.path_match(/items/)
       @@items.each do |item|
         resp.write "#{item}\n"
       end

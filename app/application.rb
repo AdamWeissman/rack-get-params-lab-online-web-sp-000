@@ -19,7 +19,7 @@ class Application
       rw handle_search(search_term)
     elsif pm.call(/cart/)
       if @@cart.empty?
-        rw("Your cart is empty")
+        rw.call("Your cart is empty")
       else
         @@cart.each do |item|
           rw "#{item}\n"
@@ -29,9 +29,9 @@ class Application
       item_param = req.params["item"]
       if @@items.include?(item_param)
         @@cart << item_param
-        rw("added #{item_param}")
+        rw.call("added #{item_param}")
       else
-        rw("We don't have that item")
+        rw.call("We don't have that item")
       end
     else
       rw "Path Not Found"
